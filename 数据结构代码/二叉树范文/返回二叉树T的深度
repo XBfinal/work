@@ -1,0 +1,14 @@
+4.编写算法实现计算并返回二叉树T的深度。（二叉树采用二叉链表存储） 参考算法： 符号常量和类型的定义及二叉链表的存储表示如第1题
+int BitreeDepth(BiTree T)
+	{	
+		if(!T)
+			return 0;
+		else{
+			left=BitreeDepth(T->lchild);
+			right=BitreeDepth(T->rchild);
+			return( left>right?left+1:right+1);
+		}
+	}
+————————————————
+版权声明：本文为CSDN博主「笑霸final」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_52062043/article/details/121888821

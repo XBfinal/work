@@ -1,0 +1,22 @@
+#define OK 1
+#define ERROR 0
+typedef int Status;
+//-------------------二叉链表的存储表示--------------------
+typedef struct BiTNode{	
+		TElemType data;
+			struct BiTNode  *lchile, *rchild;
+}BiTNode, *BiTree;
+	//-------------------算法描述------------------------------------
+		Status LayerTraverse(BiTree  T, Status  (*visit)(TElemType  e)){	//按层遍历二叉链表T。
+			if(!T)	return OK;
+			InitQueue(Q);
+			EnQueue(Q,T);
+			while(!QueueEmpty(Q))
+			{	
+				DeQueue(Q,p);
+				if(!(*visit)(p->data))		return ERROR;
+				if(p->lchild)	EnQueue(Q,p->lchild);
+				if(p->rchild)	EnQueue(Q,p->rchild);
+			}
+			return OK;
+		}//LayTraverse
